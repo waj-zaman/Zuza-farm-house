@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <section className="bg-[#FFF8E8] py-16 px-4 sm:px-6 md:px-8">
+        <section id='contact' className="bg-[#FFF8E8] py-16 px-4 sm:px-6 md:px-8">
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
 
                 {/* Contact Form */}
@@ -37,7 +37,7 @@ const Contact = () => {
                 </div>
 
                 {/* Contact Details */}
-                <div className="flex flex-col justify-center text-[#4F1A1A] space-y-6 text-center lg:text-start pl-10">
+                <div className="flex flex-col justify-center text-[#4F1A1A] space-y-6 text-center lg:text-start lg:pl-10">
                     <h2 className="text-2xl sm:text-3xl font-semibold">Contact Details</h2>
                     <div>
                         <h3 className="font-semibold">Address:</h3>

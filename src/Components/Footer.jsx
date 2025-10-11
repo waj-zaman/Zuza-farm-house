@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between gap-8 lg:gap-0">
         {/* Logo & Description */}
         <div className="lg:w-1/4 text-center lg:text-left">
-          <h1 className="text-2xl sm:text-3xl font-bold pb-2">Client Logo</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold pb-2"><Link to='/' onClick={() => window.scrollTo({ top:0, behavior:'smooth' })}>Farm House Logo</Link></h1>
           <p className="text-sm sm:text-base leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, explicabo at. Neque, at eum impedit reiciendis ad quos ipsa.
           </p>

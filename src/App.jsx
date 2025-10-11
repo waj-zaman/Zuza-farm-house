@@ -1,21 +1,14 @@
 import React from 'react'
-import Navbar from './Components/Navbar'
-import Hero from './sections/Hero'
-import About from './sections/About'
-import Footer from './Components/Footer'
-import Contact from './sections/Contact'
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './Pages/HomePage';
+import AmenitiesPage from './Pages/AmentiesPage';
 
 function App() {
   return (
-    <div className='flex flex-col mx-auto'>
-      <div>
-        <Navbar />
-        <Hero />
-        <About />
-        <Contact />
-        <Footer />
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />}/>
+      <Route path="/amenities" element={<AmenitiesPage />}/>
+    </Routes>
   )
 }
 
