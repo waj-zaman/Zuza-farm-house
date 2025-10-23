@@ -1,1 +1,23 @@
+@import "slick-carousel/slick/slick.css";
+
+
 @import "tailwindcss";
+
+.heading {
+    font-family: 'Playfair Display', serif; /* proper CSS syntax */
+    color: #01003B; /* correct property */
+    
+}
+
+.subheading {
+    font-family: 'Lato', sans-serif;
+    color: #0CC8F7;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+
+}
+
+.body {
+    font-family: 'Lato', sans-serif;
+    color: gray;
+}

@@ -15,12 +15,12 @@ const Contact = () => {
   };
 
   return (
-    <section id='contact' className="bg-[#FFF8E8] py-16 px-4 sm:px-6 md:px-8">
+    <section id='contact' className="bg-[#C3F7F9] py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         {/* Contact Form */}
         <div className="shadow-md rounded-lg p-10 bg-white">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-[#4F1A1A]">Get in Touch</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-[#320A6B]">Get in Touch</h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
             <input
@@ -46,7 +46,7 @@ const Contact = () => {
             ></textarea>
             <button
               type="submit"
-              className="bg-[#4F1A1A] text-[#FFF8E8] px-6 py-3 rounded-lg hover:bg-green-700 transition"
+              className="bg-[#320A6B] text-[#FFF8E8] md:text-xl px-6 py-3 rounded-lg hover:bg-purple-700 transition font-[poppins]"
             >
               Send Message
             </button>
@@ -54,7 +54,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Details */}
-        <div className="flex flex-col justify-center text-[#4F1A1A] space-y-6 text-center lg:text-start lg:pl-10">
+        <div className="flex flex-col justify-center text-[#320A6B] space-y-6 text-center lg:text-start lg:pl-10">
           <h2 className="text-2xl sm:text-3xl font-semibold">Contact Details</h2>
           <div>
             <h3 className="font-semibold">Address:</h3>

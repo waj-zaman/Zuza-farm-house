@@ -31,11 +31,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#4F1A1A] text-[#FFF8E8] px-4 sm:px-6 md:px-8 py-8">
+    <footer className="bg-[#00CED1] text-[#320A6B] px-4 sm:px-6 md:px-8 py-8">
       {/* Top Section */}
       <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between gap-8 lg:gap-0">
         {/* Logo & Description */}
-        <div className="lg:w-1/4 text-center lg:text-left">
+        <div className="lg:w-1/4 text-center lg:text-left flex flex-col justify-center">
           <h1 className="text-2xl sm:text-3xl font-bold pb-2">
             <Link
               to="/"
@@ -43,12 +43,11 @@ const Footer = () => {
                 window.scrollTo({ top: 0, behavior: "smooth" })
               }
             >
-              Farm House Logo
+              <h1 className="font-[kalnia] font-medium">ZUZA<span className="font-[nowy] italic pl-1">farmstay</span></h1>
             </Link>
           </h1>
-          <p className="text-sm sm:text-base leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque,
-            explicabo at. Neque, at eum impedit reiciendis ad quos ipsa.
+          <p className="text-sm sm:text-base leading-5">
+            Find your calm in the gentle embrace of nature — where comfort, care, and countryside charm come together effortlessly.
           </p>
         </div>
 
@@ -60,7 +59,7 @@ const Footer = () => {
             <ul className="space-y-1">
               <li>
                 <Link
-                className="hover:text-green-300"
+                  className="hover:text-green-300"
                   to="/"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
