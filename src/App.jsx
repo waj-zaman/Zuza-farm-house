@@ -32,7 +32,7 @@ function App() {
       <div className="fixed bottom-15 right-5 z-50 flex flex-col gap-3 md:hidden">
         {/* 📞 Call Button */}
         <a
-          href="tel:+919876543210" // <-- replace with your number
+          href="tel:+917386868001" // <-- replace with your number
           className="
             flex items-center justify-center
             w-14 h-14 rounded-full shadow-lg
@@ -45,7 +45,7 @@ function App() {
 
         {/* 💬 WhatsApp Button */}
         <a
-          href="https://wa.me/919876543210" // <-- replace with your number (no '+' here)
+          href="https://wa.me/917386868001" // <-- replace with your number (no '+' here)
           target="_blank"
           rel="noopener noreferrer"
           className="
