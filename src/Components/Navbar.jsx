@@ -57,9 +57,9 @@ const Navbar = () => {
       { name: "Home", type: "route", path: "/" },
       { name: "About", type: "scroll", path: "about" },
       { name: "Amenities", type: "scroll", path: "amenities" },
-      { name: "Gallery", type: "scroll", path: "/gallery" },
+      { name: "Gallery", type: "route", path: "/amenities" },
       { name: "Contact", type: "scroll", path: "contact" }, ,
-      { name: "FAQ", type: "scroll", path: "/info" }
+      { name: "FAQ", type: "route", path: "/info" }
     ]
     : [
       { name: "Home", type: "route", path: "/" },
@@ -121,12 +121,13 @@ const Navbar = () => {
 
         {/* Mobile Navbar */}
         <div className="flex justify-between items-center px-6 lg:hidden">
-          <button>
+          <Link to="/">
             <div className="flex items-center gap-1 text-[#01003B]">
-                      <img className="w-6 h-6" src={farmhouse} alt="Farmhouse" />
-                      <h1 className="my-auto" style={{fontFamily: "'Asul', sans-serif"}}>ZUZA FARM HOUSE</h1>
-                    </div>
-          </button>
+              <img className="w-6 h-6" src={farmhouse} alt="Farmhouse" />
+              <h1 className="my-auto" style={{ fontFamily: "'Asul', sans-serif" }}>ZUZA FARM HOUSE</h1>
+            </div>
+          </Link>
+
           <button
             onClick={toggleMenu}
             className="text-2xl focus:outline-none text-[#320A6B] z-50"
@@ -138,7 +139,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-      style={{fontFamily: "'Asul', sans-serif"}}
+        style={{ fontFamily: "'Asul', sans-serif" }}
         className={`fixed top-0 right-0 h-full w-3/4 bg-[#C3F7F9] text-[#320A6B] shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${isOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >

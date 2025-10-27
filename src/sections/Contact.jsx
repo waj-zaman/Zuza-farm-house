@@ -1,78 +1,131 @@
-import React from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+
+import maps from "../assets/Screenshot 2025-10-18 225109.png";
+import phone from "../assets/icons/phone-call.png";
+import gmail from "../assets/icons/gmail.png";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stop page reload
-    e.target.reset(); // clear the form
-    toast.success('Your message has been sent successfully!', {
-      position: 'bottom-right',
-      autoClose: 3000,
-      theme: 'colored',
-    });
+    e.preventDefault();
+
+    // Construct WhatsApp message
+    const whatsappNumber = "917386868001"; // Owner's number with country code
+    const whatsappMessage = `Hello! There is an enquiry for Zuza farmhouse.
+
+Name: ${formData.name}
+Email: ${formData.email}
+Message: ${formData.message}`;
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Reset form
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id='contact' className="bg-[#C3F7F9] py-16 px-4 sm:px-6 md:px-8">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-        {/* Contact Form */}
-        <div className="shadow-md rounded-lg p-10 bg-white">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-[#320A6B]">Get in Touch</h2>
-
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#4F1A1A]"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#4F1A1A]"
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              required
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#4F1A1A]"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-[#320A6B] text-[#FFF8E8] md:text-xl px-6 py-3 rounded-lg hover:bg-purple-700 transition font-[poppins]"
-            >
-              Send Message
-            </button>
-          </form>
+    <section id="contact" className="py-16 lg:py-24">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h3 className="subheading tracking-wide">Contact</h3>
+          <h1 className="heading font-semibold text-3xl lg:text-4xl">
+            Visit Us Soon
+          </h1>
         </div>
 
-        {/* Contact Details */}
-        <div className="flex flex-col justify-center text-[#320A6B] space-y-6 text-center lg:text-start lg:pl-10">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Contact Details</h2>
-          <div>
-            <h3 className="font-semibold">Address:</h3>
-            <p>123 Farm Road</p>
+        {/* Content Wrapper */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
+          {/* Left Column - Form + Contact Info */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
+            <form
+              onSubmit={handleSubmit}
+              className="w-full max-w-md bg-[#ABEEFF] backdrop-blur-md shadow-lg rounded-2xl flex flex-col gap-5 p-6 sm:p-8"
+            >
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                required
+                className="border border-[#01003B] bg-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#320A6B] shadow-sm placeholder-gray-400 transition duration-300"
+              />
+
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                required
+                className="border border-[#01003B] bg-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#320A6B] shadow-sm placeholder-gray-400 transition duration-300"
+              />
+
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Your Message"
+                required
+                rows={5}
+                className="border border-[#01003B] bg-white rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#320A6B] shadow-sm placeholder-gray-400 transition duration-300"
+              />
+
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-[#320A6B] to-[#00CED1] text-white font-semibold py-3 rounded-xl hover:scale-105 transform transition duration-300 shadow-md"
+              >
+                Submit
+              </button>
+            </form>
+
+            {/* Contact Info */}
+            <div className="flex flex-col gap-3 pt-6 sm:pt-8">
+              <div className="flex items-center gap-4">
+                <img src={phone} alt="Phone" className="w-5 sm:w-6" />
+                <p className="body text-sm sm:text-base font-medium">
+                  +91 73868 68001
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <img src={gmail} alt="Email" className="w-5 sm:w-6" />
+                <p className="body text-sm sm:text-base font-medium break-words">
+                  zuzafarmhouse@gmail.com
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 className="font-semibold">Phone:</h3>
-            <p>+91 98765 43210</p>
-          </div>
-          <div>
-            <h3 className="font-semibold">Email:</h3>
-            <p>info@farmhousename.com</p>
+
+          {/* Right Column - Map */}
+          <div className="w-full flex justify-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Zuza+Farm+House+Moinabad"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={maps}
+                alt="Zuza Farmhouse Map"
+                className="w-full sm:w-[80%] md:w-[90%] lg:w-[1200px] rounded-2xl shadow-[6px_6px_10px_rgba(0,0,0,0.3)] object-cover"
+              />
+            </a>
           </div>
         </div>
       </div>
-
-      {/* Toast Notification Container */}
-      <ToastContainer />
     </section>
   );
 };

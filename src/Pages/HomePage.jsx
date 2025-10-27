@@ -6,7 +6,12 @@ import About from '../sections/About'
 import Achievements from '../sections/Achivements'
 import Footer from '../Components/Footer'
 import Amenities from '../sections/Amenitites'
+import Reviews from '../sections/Reviews'
+import WhyUs from '../sections/WhyUs'
+import Album from '../sections/Album'
 import Contact from '../sections/Contact'
+
+
 import bgImage from '../assets/farmPics/_GGN6121.avif'
 
 function HomePage() {
@@ -19,6 +24,9 @@ function HomePage() {
         <About />
         <Achievements />
         <Amenities />
+        <Reviews />
+        <WhyUs />
+        <Album />
         <Contact />
         <Footer />
       </div>

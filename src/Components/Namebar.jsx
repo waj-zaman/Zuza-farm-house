@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as ScrollLink } from 'react-scroll'
 
 import whatsapp from '../assets/icons/whatsapp.png'
 import farmhouse from '../assets/icons/rural.png'
@@ -13,10 +14,17 @@ const Namebar = () => {
         className="flex justify-between items-center text-xl max-w-[1200px] mx-auto w-full"
       >
         {/* Left: WhatsApp */}
-        <div className="flex items-center gap-2 text-[#01003B]">
-          <img className="w-8 h-8" src={whatsapp} alt="WhatsApp" />
-          <h1>+91 72868 68001</h1>
-        </div>
+        <a
+          href="https://wa.me/917386868001"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="flex items-center gap-2 text-[#01003B] cursor-pointer hover:opacity-80 transition">
+            <img className="w-8 h-8" src={whatsapp} alt="WhatsApp" />
+            <h1>+91 73868 68001</h1>
+          </div>
+        </a>
+
 
         {/* Middle: Farmhouse Name */}
         <div className="flex items-center gap-2 text-[#01003B]">
@@ -26,9 +34,15 @@ const Namebar = () => {
 
         {/* Right: Button */}
         <div>
-          <button className="bg-[#FF7B00] text-white px-3 py-2 rounded-lg hover:bg-[#e96d00] transition">
-            Contact Us
-          </button>
+          <ScrollLink
+            to="contact"      // ID of the section you want to scroll to
+            smooth={true}     // smooth scrolling
+            duration={500}    // scroll duration in ms
+          >
+            <button className="bg-[#FF7B00] text-white px-3 py-2 rounded-lg hover:bg-[#e96d00] transition">
+              Contact Us
+            </button>
+          </ScrollLink>
         </div>
       </div>
     </section>

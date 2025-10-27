@@ -16,14 +16,14 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <section className="bg-[#ABEEFF] py-8 lg:py-16 px-4 sm:px-6">
+    <section className="bg-[#ABEEFF] py-8 lg:py-24 px-4 sm:px-6">
       {/* Heading */}
       <div className="max-w-[1400px] mx-auto text-center mb-10 px-4">
         <p className="subheading text-gray-700 text-sm sm:text-base lg:text-lg">
           Statistics
         </p>
         <h2 className="heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[#01003B]">
-          Our Achievements Over the Years.
+          Our Achievements Over the Years
         </h2>
       </div>
 
@@ -35,11 +35,11 @@ const Achievements = () => {
             className="bg-white justify-between shadow-md rounded-2xl p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
           >
             <img src={item.icon} alt={item.title} className="w-12 h-12 mb-4" />
-            <h3 className="text-lg sm:text-lg font-semibold text-[#01003B] mb-2">
+            <h3 className="text-md sm:text-lg font-semibold text-[#01003B] mb-2">
               {item.title}
             </h3>
             <p
-              className="text-4xl sm:text-5xl text-[#320A6B]"
+              className="text-3xl sm:text-5xl text-[#320A6B]"
               style={{ fontFamily: "'BBH Sans Bogle', sans-serif" }}
             >
               {item.value}

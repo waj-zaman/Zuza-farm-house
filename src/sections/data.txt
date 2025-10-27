@@ -1,0 +1,38 @@
+import aiman from "../assets/reivews/aiman fasi.png";
+import ayesha from "../assets/reivews/ayesha.png";
+import raihan from "../assets/reivews/raihan.png";
+import yatish from "../assets/reivews/yatish.png";
+import ateeq from "../assets/reivews/unnamed.png";
+
+const reviews = [
+  {
+    pic: aiman,
+    name: "Aiman Fasi",
+    star: 4.5,
+    text: "Zuza Farmhouse is a great spot for a peaceful weekend. The interiors are clean and tastefully done, with a nice natural touch. Lots of greenery around, and the kids loved the play area. Perfect for a chill family or friends' getaway.",
+  },
+  {
+    pic: raihan,
+    name: "Mohammad Raihan",
+    star: 5,
+    text: "We had an amazing stay at Zuza Farmhouse! The property is calm, well-kept, and offers the ideal mix of rustic charm with modern comfort. Every detail feels thoughtfully cared for—from the inviting interiors to the peaceful outdoor areas.",
+  },
+  {
+    pic: ayesha,
+    name: "Ayesha",
+    star: 5,
+    text: "Great place for a getaway. Highly maintained farmhouse with all the basic amenities. Huge green lawn and clean swimming pool. Do visit to experience it yourself!",
+  },
+  {
+    pic: yatish,
+    name: "Yatish Parmar",
+    star: 5,
+    text: "What a hidden gem! This farmhouse was the perfect blend of rustic charm and modern amenities. The hosts were super friendly and helpful, and we loved the peaceful atmosphere.",
+  },
+  {
+    pic: ateeq,
+    name: "Ateeq Ahmed",
+    star: 5,
+    text: "As salam alaikum. Alhamdulillah we had a great time at Zuza Farmhouse. It was a cousins’ get-together. The ground was huge and the caretakers were very cooperative. Overall it was a wonderful experience!",
+  },
+];

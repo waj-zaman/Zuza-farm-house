@@ -44,6 +44,7 @@ import Navbar from "../Components/Navbar";
 import Hero from "../sections/Hero";
 import Contact from "../sections/Contact";
 import Footer from "../Components/Footer";
+import Namebar from "../Components/Namebar";
 
 export default function VillasGallery() {
   const exteriorImages = [villa1, villa2, gate1, gate2, way1, way2, way3];
@@ -64,7 +65,7 @@ export default function VillasGallery() {
   const renderSection = (title, images) => (
     <section className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-6 text-gray-800 font-[nowy/farmPics]">{title}</h2>
+        <h2 className="heading text-3xl font-semibold mb-6 text-gray-800">{title}</h2>
 
         <div
           className="
@@ -97,6 +98,7 @@ export default function VillasGallery() {
 
   return (
     <>
+      <Namebar />
       <Navbar />
       <Hero bgImage={bgImage}/>
 
