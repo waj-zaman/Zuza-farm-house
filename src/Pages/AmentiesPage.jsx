@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -62,10 +63,24 @@ export default function VillasGallery() {
     setLightboxOpen(true);
   };
 
-  const renderSection = (title, images) => (
-    <section className="py-12 bg-white">
+  const renderSection = (title, images, index) => (
+    <motion.section
+      className={`py-16 ${index % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="heading text-3xl font-semibold mb-6 text-gray-800">{title}</h2>
+        <motion.h2
+          className="heading text-3xl font-semibold mb-10 text-gray-800 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {title}
+        </motion.h2>
 
         <div
           className="
@@ -76,36 +91,56 @@ export default function VillasGallery() {
           "
         >
           {images.map((img, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`
-                relative overflow-hidden rounded-2xl cursor-pointer shadow-md 
-                ${i === 0 ? "col-span-2 row-span-2" : ""}
-              `}
+              className={`relative overflow-hidden rounded-2xl cursor-pointer shadow-md 
+                ${i === 0 ? "col-span-2 row-span-2" : ""}`}
               onClick={() => openLightbox(images, i)}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              viewport={{ once: true }}
             >
-              <img
-                src={img}
-                alt=""
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+              <div className="relative w-full h-full group">
+                <img
+                  src={img}
+                  loading="lazy"
+                  alt=""
+                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 
   return (
     <>
       <Namebar />
       <Navbar />
-      <Hero bgImage={bgImage}/>
+      <Hero bgImage={bgImage} />
 
-      {renderSection("A Glimpse Into Timeless Tranquility", exteriorImages)}
-      {renderSection("Lawn, Play & Perfect Evenings", lawnImages)}
-      {renderSection("The Essence of Refined Living", interiorImages)}
-      {renderSection("Moments by the Water & Flame", momentImages)}
+      {/* Intro fades in when scrolled into view */}
+      <motion.div
+        className="text-center py-12 bg-gradient-to-r from-[#fafafa] to-[#ffffff]"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.4 }}
+      >
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          Discover the serene charm of Zuza Farmhouse through a curated gallery
+          of its most enchanting corners — from tranquil lawns to cozy interiors.
+        </p>
+      </motion.div>
+
+      {renderSection("A Glimpse Into Timeless Tranquility", exteriorImages, 0)}
+      {renderSection("Lawn, Play & Perfect Evenings", lawnImages, 1)}
+      {renderSection("The Essence of Refined Living", interiorImages, 2)}
+      {renderSection("Moments by the Water & Flame", momentImages, 3)}
 
       <Contact />
       <Footer />

@@ -75,7 +75,7 @@ const Album = () => {
 
       <div className="mt-8 flex justify-center items-center px-4 sm:px-0">
         <Link
-          to="/gallery"
+          to="/amenities"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="body font-semibold px-5 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-[#320A6B] hover:text-white transition flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg text-[#320A6B]"
         >
