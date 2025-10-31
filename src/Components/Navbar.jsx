@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 
 import farmhouse from '../assets/icons/rural.png';
+import logo from "../assets/Client_Drive/IMG_20230201_114051.jpg"
 
 // Smooth scroll to top on route change
 const ScrollToTop = () => {
@@ -124,8 +125,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center px-6 lg:hidden">
           <Link to="/">
             <div className="flex items-center gap-1 text-[#01003B]">
-              <img className="w-6 h-6" src={farmhouse} alt="Farmhouse" />
-              <h1 className="my-auto" style={{ fontFamily: "'Asul', sans-serif" }}>ZUZA FARM HOUSE</h1>
+              <img className="w-20 h-6 rounded-sm" src={logo} alt="Farmhouse"/>
             </div>
           </Link>
 

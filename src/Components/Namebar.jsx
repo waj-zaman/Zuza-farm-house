@@ -31,7 +31,7 @@ const Namebar = () => {
         {/* Middle: Farmhouse Name */}
         <Link to="/">
           <div className="flex items-center gap-2 text-[#01003B]">
-            <img className="w-44 h-10" src={logo} alt="Farmhouse" />
+            <img className="w-44 h-10 rounded-md" src={logo} alt="Farmhouse" />
             {/* <h1>ZUZA FARM HOUSE</h1> */}
           </div>
         </Link>
