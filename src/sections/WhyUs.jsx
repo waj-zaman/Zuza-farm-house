@@ -5,7 +5,7 @@ import family from "../assets/events/family-dinner.png";
 import headquarters from "../assets/events/headquarter.png";
 import surprise from "../assets/events/surprise.png";
 import wedding from "../assets/events/wedding-decoration.png";
-import centerImage from "../assets/68747470733a2f2f796176757a63656c696b65722e6769746875622e696f2f73616d706c652d696d616765732f696d6167652d313032312e6a7067.jpeg";
+import centerImage from "../assets/farmPics/zuza_night.jpg";
 
 const WhyUs = () => {
   const sectionRef = useRef(null);

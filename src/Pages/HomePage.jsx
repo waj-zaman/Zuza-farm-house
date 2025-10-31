@@ -14,6 +14,7 @@ import Contact from '../sections/Contact'
 
 import bgImage from '../assets/farmPics/_GGN6121.avif'
 
+
 function HomePage() {
   return (
     <div className='flex flex-col mx-auto bg-white'>

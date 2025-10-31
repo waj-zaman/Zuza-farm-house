@@ -4,6 +4,7 @@ import { Link as ScrollLink } from 'react-scroll'
 
 import whatsapp from '../assets/icons/whatsapp.png'
 import farmhouse from '../assets/icons/rural.png'
+import logo from '../assets/Client_Drive/IMG_20230201_114051.jpg'
 
 const Namebar = () => {
   return (
@@ -30,8 +31,8 @@ const Namebar = () => {
         {/* Middle: Farmhouse Name */}
         <Link to="/">
           <div className="flex items-center gap-2 text-[#01003B]">
-            <img className="w-8 h-8" src={farmhouse} alt="Farmhouse" />
-            <h1>ZUZA FARM HOUSE</h1>
+            <img className="w-44 h-10" src={logo} alt="Farmhouse" />
+            {/* <h1>ZUZA FARM HOUSE</h1> */}
           </div>
         </Link>
 

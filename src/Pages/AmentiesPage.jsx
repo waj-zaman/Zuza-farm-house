@@ -3,43 +3,45 @@ import { motion } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import villa1 from '../assets/farmPics/_GGN6041.avif';
-import villa2 from '../assets/farmPics/_GGN6121.avif';
-import gate1 from '../assets/farmPics/_GGN6006.avif';
-import gate2 from '../assets/farmPics/_GGN6016.avif';
-import way1 from '../assets/farmPics/_GGN6021.avif';
-import way2 from '../assets/farmPics/_GGN6061.avif';
-import way3 from '../assets/farmPics/_GGN6071.avif';
+// For video playback
+import "yet-another-react-lightbox/styles.css";
+import Video from "yet-another-react-lightbox/plugins/video";
 
-import lawn1 from '../assets/farmPics/_GGN6036.avif';
-import lawn2 from '../assets/farmPics/_GGN6041.avif';
-import lawn3 from '../assets/farmPics/_GGN6056.avif';
-import children from '../assets/farmPics/_GGN6076.avif';
-import boxCricket from '../assets/farmPics/_GGN6096.avif';
-import gazebo1 from '../assets/farmPics/_GGN6051.avif';
-import gazebo2 from '../assets/farmPics/_GGN6091.avif';
+// ✅ Auto-import all images from farmPics folder (Vite only)
+const allImages = Object.values(
+  import.meta.glob("../assets/farmPics/*.{avif,jpg,jpeg,png}", { eager: true })
+).map((mod) => mod.default);
 
-import bbq1 from '../assets/farmPics/_GGN6131.avif';
-import bbq2 from '../assets/farmPics/_GGN6136.avif';
-import pool1 from '../assets/farmPics/_GGN6151.avif';
-import pool2 from '../assets/farmPics/_GGN6311.avif';
+// ✅ Auto-import only videos from Client_Drive folder
+const driveVideos = Object.values(
+  import.meta.glob("../assets/Client_Drive/*.mp4", { eager: true })
+).map((mod) => mod.default);
 
-import interior1 from '../assets/farmPics/_GGN6156.avif';
-import interior2 from '../assets/farmPics/_GGN6171.avif';
-import interior3 from '../assets/farmPics/_GGN6176.avif';
-import interior4 from '../assets/farmPics/_GGN6185.avif';
-import interior5 from '../assets/farmPics/_GGN6196.avif';
-import interior6 from '../assets/farmPics/_GGN6246.avif';
-import room1 from '../assets/farmPics/_GGN6211.avif';
-import room2 from '../assets/farmPics/_GGN6236.avif';
-import room3 from '../assets/farmPics/_GGN6256.avif';
-import kitchen from '../assets/farmPics/_GGN6241.avif';
-import balcony1 from '../assets/farmPics/_GGN6251.avif';
-import balcony2 from '../assets/farmPics/_GGN6277-Edit-Edit.avif';
-import balcony3 from '../assets/farmPics/_GGN6282-Edit.avif';
-import balcony4 from '../assets/farmPics/_GGN6296.avif';
+// ✅ Categorize based on filename patterns
+const exteriorImages = allImages.filter(
+  (img) =>
+    /GGN60(41|21|61|06|16|71)/.test(img) ||
+    /night\.(jpe?g)$/i.test(img) ||
+    /zuza_night(_2)?\.(jpe?g)$/i.test(img) ||
+    /bbq\.(jpe?g)$/i.test(img)
+);
 
-import bgImage from '../assets/farmPics/_GGN6176.avif';
+
+
+const lawnImages = allImages.filter((img) =>
+  /GGN60(36|41|56|76|96|51|91)/.test(img)
+);
+
+const interiorImages = allImages.filter((img) =>
+  /GGN61(56|71|76|85|96)|GGN62(46|11|36|56|41|51|77|82|96)/.test(img)
+);
+
+const momentImages = allImages.filter((img) =>
+  /GGN61(31|36|51)|GGN63(11)/.test(img)
+);
+
+// ✅ Keep your background image manually
+import bgImage from "../assets/farmPics/_GGN6176.avif";
 
 import Navbar from "../Components/Navbar";
 import Hero from "../sections/Hero";
@@ -48,17 +50,12 @@ import Footer from "../Components/Footer";
 import Namebar from "../Components/Namebar";
 
 export default function VillasGallery() {
-  const exteriorImages = [villa1, villa2, gate1, gate2, way1, way2, way3];
-  const lawnImages = [lawn1, lawn2, lawn3, children, boxCricket, gazebo1, gazebo2];
-  const interiorImages = [interior1, interior2, interior3, interior4, interior5, interior6, room1, room2, room3, kitchen, balcony1, balcony2, balcony3, balcony4];
-  const momentImages = [bbq1, bbq2, pool1, pool2];
-
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [lightboxImages, setLightboxImages] = useState([]);
+  const [lightboxVideos, setLightboxVideos] = useState([]);
 
-  const openLightbox = (images, index) => {
-    setLightboxImages(images);
+  const openVideoLightbox = (videos, index) => {
+    setLightboxVideos(videos);
     setSelectedIndex(index);
     setLightboxOpen(true);
   };
@@ -73,7 +70,7 @@ export default function VillasGallery() {
     >
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2
-          className="heading text-3xl font-semibold mb-10 text-gray-800 text-center"
+          className="heading text-3xl font-semibold mb-10 text-[#01003B] text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -95,7 +92,7 @@ export default function VillasGallery() {
               key={i}
               className={`relative overflow-hidden rounded-2xl cursor-pointer shadow-md 
                 ${i === 0 ? "col-span-2 row-span-2" : ""}`}
-              onClick={() => openLightbox(images, i)}
+              onClick={() => openVideoLightbox(images, i)}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -117,13 +114,70 @@ export default function VillasGallery() {
     </motion.section>
   );
 
+  // ✅ Drive Section: Only videos (muted + fade-in + double-click Lightbox)
+  const renderDriveSection = () => (
+    <motion.section
+      className="py-16 bg-gray-50"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.h2
+          className="heading text-3xl font-semibold mb-10 text-gray-800 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Our Video Gallery
+        </motion.h2>
+
+        <div
+          className="
+            grid 
+            grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
+            auto-rows-[220px]
+            gap-3
+          "
+        >
+          {driveVideos.map((video, i) => (
+            <motion.div
+              key={i}
+              className={`relative overflow-hidden rounded-2xl shadow-md bg-black cursor-pointer ${i === 0 ? "col-span-2 row-span-2" : ""
+                }`}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              viewport={{ once: true }}
+            >
+              <video
+                src={video}
+                muted
+                controls
+                className="w-full h-full object-cover rounded-2xl"
+                onDoubleClick={(e) => {
+                  e.target.blur(); // ✅ Remove focus from the video element
+                  setTimeout(() => {
+                    openVideoLightbox(driveVideos, i);
+                  }, 50); // Small delay ensures focus change happens before Lightbox mounts
+                }}
+              />
+
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+
   return (
     <>
       <Namebar />
       <Navbar />
       <Hero bgImage={bgImage} />
 
-      {/* Intro fades in when scrolled into view */}
       <motion.div
         className="text-center py-12 bg-gradient-to-r from-[#fafafa] to-[#ffffff]"
         initial={{ opacity: 0, y: 60 }}
@@ -141,18 +195,28 @@ export default function VillasGallery() {
       {renderSection("Lawn, Play & Perfect Evenings", lawnImages, 1)}
       {renderSection("The Essence of Refined Living", interiorImages, 2)}
       {renderSection("Moments by the Water & Flame", momentImages, 3)}
+      {renderDriveSection()}
 
       <Contact />
       <Footer />
 
+      {/* ✅ Lightbox for Videos Only — now with proper plugin setup */}
       {lightboxOpen && (
         <Lightbox
           open={lightboxOpen}
           close={() => setLightboxOpen(false)}
           index={selectedIndex}
-          slides={lightboxImages.map((img) => ({ src: img }))}
+          plugins={[Video]}  // ✅ Activate Video plugin here
+          slides={lightboxVideos.map((src) => ({
+            type: "video",   // ✅ Explicitly mark as video
+            sources: [{ src, type: "video/mp4" }],
+            autoPlay: true,  // optional
+          }))}
+          carousel={{ finite: true }}
+          controller={{ closeOnBackdropClick: true }}
         />
       )}
+
     </>
   );
 }

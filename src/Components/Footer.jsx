@@ -5,6 +5,9 @@ import farmhouse from "../assets/icons/rural.png";
 import whatsappIcon from "../assets/icons/whatsapp.png";
 import instagramIcon from "../assets/icons/instagram.png";
 import facebookIcon from "../assets/icons/facebook.png";
+import youtube from "../assets/icons/youtube.png"
+
+import logo from '../assets/Client_Drive/IMG_20230201_114051 - Copy.jpg'
 
 const Footer = () => {
   const location = useLocation();
@@ -42,13 +45,13 @@ const Footer = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center justify-center lg:justify-start gap-2"
           >
-            <img className="w-6 h-6" src={farmhouse} alt="Farmhouse" />
-            <h1
+            <img className="w-56 h-24" src={logo} alt="Farmhouse" />
+            {/* <h1
               style={{ fontFamily: "'Asul', sans-serif" }}
               className="text-xl sm:text-2xl font-medium"
             >
               ZUZA FARM HOUSE
-            </h1>
+            </h1> */}
           </Link>
           <p className="text-xs sm:text-sm md:text-base font-light leading-5">
             Find your calm in the gentle embrace of nature — where comfort,
@@ -90,11 +93,23 @@ const Footer = () => {
                 className="w-8 h-8 hover:scale-110 transition"
               />
             </a>
+            <a
+              href="https://youtube.com/@zuzafarmhouse?si=YkIgzgiYeXEb9Aqy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={youtube}
+                alt="Youtube"
+                className="w-10 h-10 hover:scale-110 transition"
+              />
+            </a>
+            
           </div>
         </div>
 
         {/* Links Section */}
-        <div className="flex flex-col sm:flex-row gap-8 lg:gap-20 flex-1 justify-center lg:justify-end text-center lg:text-left">
+        <div className="flex flex-col sm:flex-row gap-8 lg:gap-20 flex-1 justify-center lg:justify-end text-center lg:text-left lg:mt-10">
           {/* Quick Links */}
           <div>
             <h2 className="font-semibold text-lg pb-2">Quick Links</h2>

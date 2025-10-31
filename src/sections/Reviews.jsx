@@ -6,6 +6,14 @@ import ayesha from "../assets/reivews/ayesha.png";
 import raihan from "../assets/reivews/raihan.png";
 import yatish from "../assets/reivews/yatish.png";
 import ateeq from "../assets/reivews/unnamed.png";
+import khaja from "../assets/reivews/khaja.png";
+import jyothi from "../assets/reivews/jyothi.png";
+import mayank from "../assets/reivews/mayank.png";
+import nalavolu from "../assets/reivews/nalavolu.png";
+import pramod from "../assets/reivews/pramod.png";
+import graph from "../assets/reivews/prashant.png";
+import diyanat from "../assets/reivews/diyanat.png";
+
 
 const reviews = [
   {
@@ -37,6 +45,48 @@ const reviews = [
     name: "Ateeq Ahmed",
     star: 5,
     text: "As salam alaikum. Alhamdulillah we had a great time at Zuza Farmhouse. It was a cousins’ get-together. The ground was huge and the caretakers were very cooperative. Overall it was a wonderful experience!",
+  },
+  {
+    pic: khaja,
+    name: "Mohammad Khaja",
+    star: 5,
+    text: "Had an amazing stay at this farmhouse! The place was peaceful, beautifully maintained, and had everything we needed for a relaxing getaway. The greenery, open space, and fresh air made it feel like a true escape from the city....",
+  },
+  {
+    pic: nalavolu,
+    name: "Nalavolu Sridhar Reddy",
+    star: 5,
+    text: "Excellent Maintenance. Enjoyed our staff outing.. Swimg pool was well maintained and we enjoyed the box cricket..And night in the lawn",
+  },
+  {
+    pic: graph,
+    name: "Graphy d graphic design",
+    star: 5,
+    text: "This farmhouse is super well-kept clean, cozy, and clearly looked after with a lot of care. The place has a great vibe, inside and out, and everything feels really comfortable and inviting. Thankyou zuza farmhouse",
+  },
+  {
+    pic: jyothi,
+    name: "Jyothirmai Mudumba",
+    star: 5,
+    text: "Very beautiful and neatly maintained ,food supplied by near by restaurant is also good. It will be great if we have few foldable cots and blankets as we have 50 + people who can't sleep on floor  other wise this is fantastic place to enjoy with family within in budget they had given",
+  },
+  {
+    pic: diyanat,
+    name: "Diyanat Kirmani",
+    star: 5,
+    text: "Zuza farm house is  very good & good maintenance every thing was excellent maintenance like this only",
+  },
+  {
+    pic: mayank,
+    name: "Mayank Gupta",
+    star: 5,
+    text: "This place is highly recommended for family get togethers. USP of this place is the way it has been maintained. Clean lawns, swimming pool, sit out areas, etc made our stay memorable. It would be great if they can provide towels and toiletries too.",
+  },
+  {
+    pic: pramod,
+    name: "Pramod Maka",
+    star: 5,
+    text: "Good place to spend the time with your near and dear.Good management and are responsible for everything what their customers need. I had good experience with them, when I lost my diamond ring in their farm house the management took complete responsibility in search of it and returned it to me in same condition."
   },
 ];
 

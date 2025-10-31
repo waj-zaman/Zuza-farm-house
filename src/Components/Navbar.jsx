@@ -109,6 +109,7 @@ const Navbar = () => {
                     to={link.path}
                     smooth
                     duration={500}
+                    offset={-35}
                     className="hover:text-[#fbeaff] cursor-pointer"
                   >
                     {link.name}

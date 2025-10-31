@@ -9,7 +9,7 @@ import star from "../assets/icons/favourite.png";
 
 const achievements = [
   { icon: guests, title: "Total Guests Hosted", value: "2000+" },
-  { icon: land, title: "Land Area (Acres)", value: "5+" },
+  { icon: land, title: "Land Area (Acres)", value: "1.5+" },
   { icon: events, title: "Events and Celebrations", value: "120+" },
   { icon: calender, title: "Serving Happily Since", value: "2023" },
   { icon: star, title: "Avg Customer Rating (Maps)", value: "4.6" },
