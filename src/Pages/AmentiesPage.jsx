@@ -14,7 +14,7 @@ const allImages = Object.values(
 
 // ✅ Auto-import only videos from Client_Drive folder
 const driveVideos = Object.values(
-  import.meta.glob("../assets/Client_Drive/*.mp4", { eager: true })
+  import.meta.glob("../assets/Client_Drive/mobile_content/*.mp4", { eager: true })
 ).map((mod) => mod.default);
 
 // ✅ Categorize based on filename patterns
