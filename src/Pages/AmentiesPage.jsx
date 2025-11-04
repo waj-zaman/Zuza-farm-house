@@ -63,14 +63,24 @@ const fadeUp = {
 // ✅ Component
 // ===============================
 export default function VillasGallery() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  // ✅ Separate states for images and videos
+  const [imageLightboxOpen, setImageLightboxOpen] = useState(false);
+  const [videoLightboxOpen, setVideoLightboxOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [lightboxImages, setLightboxImages] = useState([]);
   const [lightboxVideos, setLightboxVideos] = useState([]);
+
+  // ✅ Handlers
+  const openImageLightbox = (images, index) => {
+    setLightboxImages(images);
+    setSelectedIndex(index);
+    setImageLightboxOpen(true);
+  };
 
   const openVideoLightbox = (videos, index) => {
     setLightboxVideos(videos);
     setSelectedIndex(index);
-    setLightboxOpen(true);
+    setVideoLightboxOpen(true);
   };
 
   // ✅ Fallback: make sure opacity resets if viewport trigger fails
@@ -94,7 +104,7 @@ export default function VillasGallery() {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.15 }} // ✅ More mobile-friendly
+      viewport={{ once: false, amount: 0.15 }}
     >
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2
@@ -125,7 +135,7 @@ export default function VillasGallery() {
               whileInView="visible"
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              onClick={() => openVideoLightbox(images, i)}
+              onClick={() => openImageLightbox(images, i)} // ✅ fixed
             >
               <div className="relative w-full h-full group">
                 <img
@@ -237,11 +247,23 @@ export default function VillasGallery() {
       <Contact />
       <Footer />
 
-      {/* ✅ Lightbox for Videos Only */}
-      {lightboxOpen && (
+      {/* ✅ Lightbox for Images */}
+      {imageLightboxOpen && (
         <Lightbox
-          open={lightboxOpen}
-          close={() => setLightboxOpen(false)}
+          open={imageLightboxOpen}
+          close={() => setImageLightboxOpen(false)}
+          index={selectedIndex}
+          slides={lightboxImages.map((src) => ({ src, type: "image" }))}
+          carousel={{ finite: true }}
+          controller={{ closeOnBackdropClick: true }}
+        />
+      )}
+
+      {/* ✅ Lightbox for Videos */}
+      {videoLightboxOpen && (
+        <Lightbox
+          open={videoLightboxOpen}
+          close={() => setVideoLightboxOpen(false)}
           index={selectedIndex}
           plugins={[Video]}
           slides={lightboxVideos.map((src) => ({
