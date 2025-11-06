@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 
 import farmhouse from '../assets/icons/rural.png';
-import logo from "../assets/Client_Drive/IMG_20230201_114051.jpg"
+import logo from "../assets/Client_Drive/IMG_20230201_114051 - Copy.jpg"
 
 // Smooth scroll to top on route change
 const ScrollToTop = () => {

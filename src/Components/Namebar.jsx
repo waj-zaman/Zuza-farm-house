@@ -4,7 +4,9 @@ import { Link as ScrollLink } from 'react-scroll'
 
 import whatsapp from '../assets/icons/whatsapp.png'
 import farmhouse from '../assets/icons/rural.png'
-import logo from '../assets/Client_Drive/IMG_20230201_114051.jpg'
+// import logo from '../assets/Client_Drive/IMG_20230201_114051.jpg'
+import logo from '../assets/Client_Drive/IMG_20230201_114051 - Copy.jpg'
+
 
 const Namebar = () => {
   return (
