@@ -72,8 +72,8 @@ const Navbar = () => {
       <ScrollToTop />
 
       <nav
-        className={`bg-[#0CC8F7] text-[#01003B] py-4 shadow-sm fixed w-full z-40 transition-transform duration-300
-    ${showNavbar ? "lg:translate-y-[64px] translate-y-0" : "-translate-y-full"}`
+        className={`bg-[#0CC8F7] text-[#01003B] md:py-4 py-2  shadow-sm fixed w-full z-40 transition-transform duration-300
+    ${showNavbar ? "lg:translate-y-[96px] translate-y-0" : "-translate-y-full"}`
         }
       >
 
@@ -125,7 +125,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center px-6 lg:hidden">
           <Link to="/">
             <div className="flex items-center gap-1 text-[#01003B]">
-              <img className="w-20 h-6 rounded-sm" src={logo} alt="Farmhouse"/>
+              <img className="w-28 h-10 rounded-sm" src={logo} alt="Farmhouse"/>
             </div>
           </Link>
 
